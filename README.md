@@ -1,7 +1,7 @@
 # WeatherWear
 ## Vytvořili: Petr Rídl & Jakub Vazan
 ## Stručný popis:
-Internetová aplikace, která bude pracovat na základě toho, že se zeptá uživatele na několik málo informací jako jsou lokalita, pohlaví. Aplikace se podívá na počasí v dané lokalitě a podle toho navrhne, co by si uživatel měl vzít na sebe, ať si vezme optimální oblečení. 
+Internetová aplikace, která bude pracovat na základě toho, že se zeptá uživatele na několik málo informací jako jsou lokalita, pohlaví. Aplikace se podívá na počasí v dané lokalitě a podle toho navrhne, co by si uživatel měl vzít na sebe, ať si vezme optimální oblečení.  
 Poznámka: Toto je nekomerční projekt a slouží pouze pro studijní účely v rámci výuky OAUH.
 
 ## Použité programy:
