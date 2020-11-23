@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="swaggeradder.css">
+    <title>WeatherWear</title>
+</head>
+<body>
+    <div class = "Datum">
+        <script>
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var yyyy = today.getFullYear();
+
+            today = dd + '/' + mm + '/' + yyyy;
+            document.write(today);
+        </script>
+    </div>
+    <div class="Obloha">
+        tady bude jakoze jestli je jasno oblacno nebo tak
+    </div>
+
+    <div class="Poloha">
+         <form id="poloha">
+            <input type="text" id="Poloha" name="Poloha" value="Vaše Poloha plsky">
+            <input type="submit" value="Submit">
+         </form>
+    </div>
+</body>
+</html>

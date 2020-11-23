@@ -1,0 +1,31 @@
+.Datum
+{
+    text-align: center;
+    font-size: 40px;
+    font-family: Helvetica;
+    color: gray;
+    margin-top: 30px;
+}
+
+.Obloha
+{
+    text-align: center;
+    font-size: 50px;
+    font-family: Helvetica;
+    color: gray;
+    margin-top: 20px;
+}
+
+div.Poloha
+{
+    text-align: center;
+    width: 750px;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 50px;
+    font-family: Helvetica;
+    color: gray;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50px;
+}
