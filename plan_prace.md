@@ -16,5 +16,5 @@ Petr Rídl - Předávání dat
 Jakub Vazan - návrh modelů pro oblečení
 
 ### 7.12.2020 - 13.12.2020
-Petr Rídl -   
-Jakub Vazan - 
+Petr Rídl - nahrání na webhosting
+Jakub Vazan - doladění designu
