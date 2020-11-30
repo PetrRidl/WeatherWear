@@ -1,31 +1,63 @@
+body, ul
+{
+    margin: 0px;
+    padding: 0px;
+}
+header
+{
+    background-color: #3498DB;
+    transition:background 0.5s ease-out;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    border-bottom: solid;
+    border-width: 2px;
+    padding: 5px;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.Tlacitko
+{
+    background-color: #FF69B4;
+    transition:background 0.5s ease-out;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    width: 100px;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    outline:none;
+    vertical-align: top;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 .Datum
 {
+    background-color: #DFDFDF;
+    padding-top: 10px;
     text-align: center;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: gray;
+}
+
+.info
+{
+    background-color: #DFDFDF;
+    transition:background 0.5s ease-out;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
     font-size: 40px;
-    font-family: Helvetica;
-    color: gray;
-    margin-top: 30px;
-}
-
-.Obloha
-{
+    padding: 25px;
     text-align: center;
-    font-size: 50px;
-    font-family: Helvetica;
-    color: gray;
-    margin-top: 20px;
-}
-
-div.Poloha
-{
-    text-align: center;
-    width: 750px;
-    margin: auto;
-    margin-top: 20px;
-    font-size: 50px;
-    font-family: Helvetica;
-    color: gray;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 50px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
