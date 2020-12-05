@@ -4,17 +4,17 @@
 
 ### 16.11.2020 - 22.11.2020
 
-Petr Rídl - Vytvořit základ sekundární stránky
+Petr Rídl - Vytvořit základ sekundární stránky  
 Jakub Vazan - Vytvořit základ hlavní stránky
 
 ### 23.11.2020 - 29.11.2020
-Petr Rídl - zavedení api do systému
+Petr Rídl - zavedení api do systému  
 Jakub Vazan - přichystat uživatelská data pro předání
 
 **Probíhá změna - sloučení dvou stran do jedné po konzultaci
 
 ### 30.11.2020 - 6.12.2020
-Petr Rídl - Práce s daty s api 
+Petr Rídl - Práce s daty s api   
 Jakub Vazan - Zjištění lokace uživatele  
 
 **Objevení problému - Odpověď od api - error 401 - na podporu již bylo napsáno  
