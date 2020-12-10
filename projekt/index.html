@@ -11,7 +11,7 @@
     <title>WeatherWear</title>
 </head>
 
-<body onload="getLocation(), pohlavi(), apiCall()">
+<body onload="getLocation(), pohlavi()">
     <!-- když se načte body, zjistí lokaci přes funkci getLocation() a nastaví se pohlaví na muz pomocí funkce pohlavi()-->
     <header id="pozadiVrchu">
         <div class="logo">
@@ -28,18 +28,18 @@
         function apiCall() {
             var teplota;
             let request = new XMLHttpRequest();
-            request.open("GET", "https://api.openweathermap.org/data/2.5/onecall?lat={37.39}&lon={-122.08}&appid={dd36dc5e73f05a1c2a28d85e662fb406}");
+            request.open("GET", "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&units=metric&appid=dd36dc5e73f05a1c2a28d85e662fb406");
             request.send();
             console.log(request);
 
             request.onload = () => {
                     console.log(request);
-                    teplota = JSON.parse(request.response.main.temp);
+                    teplota = request.response.timezone;
 
                 }
                 //var teplota = JSON.parse(request.response.main.temp);
-            if (teplota == null) teplota = 10;
-            else teplota = 11;
+            if (teplota) teplota = 9;
+            else teplota = 13;
             document.getElementById("kontrolaTeploty").innerHTML = teplota;
         }
     </script>
@@ -63,6 +63,7 @@
                 kontrolaPohlavi.innerHTML = pohlavi;
                 textTlacitka.innerHTML = " Muž";
             }
+			
         }
     </script>
 
@@ -108,7 +109,10 @@
                 const lat = position.coords.latitude; //nastavuje ty tvoje const do API
                 const long = position.coords.longitude;
                 latlong.innerHTML = lat + "<br>" + long; // test jestli funguje to lat a long . a ano funguje
+				if(lat > 0){
+				apiCall();
             }
+			}
         </script>
 
     </div>
