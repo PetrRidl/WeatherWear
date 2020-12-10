@@ -12,8 +12,6 @@ Poznámka: Toto je nekomerční projekt a slouží pouze pro studijní účely v
 V našem týmu jsme chtěli využít použitelnou aplikaci, která nemá řádné zastoupení. Jediná náhrada, kterou jsme objevili je aplikace What should I wear today? a přijde nám mírně 
 zastaralá. Díky tomu věříme, že naše aplikace objeví své uživatele.
 
-## Použité frameworky a knihovny:
-- Bootstrap
  
 ## Použité programovací jazyky
 - Javascript
