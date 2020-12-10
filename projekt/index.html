@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="swaggeradder.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>WeatherWear</title>
+</head>
+
+<body onload="getLocation(), pohlavi(), apiCall()">
+    <!-- když se načte body, zjistí lokaci přes funkci getLocation() a nastaví se pohlaví na muz pomocí funkce pohlavi()-->
+    <header id="pozadiVrchu">
+        <div class="logo">
+            <img src="WeatherWearLogo.png" height="80px">
+        </div>
+        <div class="poloha">
+            Trump2020
+        </div>
+        <div class="pohlavi">
+            <button class="Tlacitko" onclick="Tlacitko()" id="Tlacitko"><span id="textTlacitka">Žena</span></button>
+        </div>
+    </header>
+    <script>
+        function apiCall() {
+            var teplota;
+            let request = new XMLHttpRequest();
+            request.open("GET", "https://api.openweathermap.org/data/2.5/onecall?lat={37.39}&lon={-122.08}&appid={dd36dc5e73f05a1c2a28d85e662fb406}");
+            request.send();
+            console.log(request);
+
+            request.onload = () => {
+                    console.log(request);
+                    teplota = JSON.parse(request.response.main.temp);
+
+                }
+                //var teplota = JSON.parse(request.response.main.temp);
+            if (teplota == null) teplota = 10;
+            else teplota = 11;
+            document.getElementById("kontrolaTeploty").innerHTML = teplota;
+        }
+    </script>
+    <script>
+        function pohlavi() {
+            var pohlavi = "muz";
+            kontrolaPohlavi.innerHTML = pohlavi;
+        }
+
+        function Tlacitko() {
+            if (pohlavi == "zena") {
+                document.getElementById("pozadiVrchu").style.backgroundColor = 'rgb(' + 52 + ',' + 152 + ',' + 219 + ')';
+                document.getElementById("Tlacitko").style.backgroundColor = ' #FF69B4';
+                pohlavi = "muz";
+                kontrolaPohlavi.innerHTML = pohlavi;
+                textTlacitka.innerHTML = "Žena";
+            } else {
+                document.getElementById("pozadiVrchu").style.backgroundColor = 'rgb(' + 255 + ',' + 105 + ',' + 180 + ')';
+                document.getElementById("Tlacitko").style.backgroundColor = '#3498DB';
+                pohlavi = "zena"
+                kontrolaPohlavi.innerHTML = pohlavi;
+                textTlacitka.innerHTML = " Muž";
+            }
+        }
+    </script>
+
+    <div class="Datum">
+        <script>
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var yyyy = today.getFullYear();
+
+            today = dd + '/' + mm + '/' + yyyy;
+            document.write(today);
+        </script>
+    </div>
+
+    <div class="info">
+        <div class="obloha">
+            oblacno az polojasno
+        </div>
+        <div class="teplota">
+            <p id="kontrolaTeploty"></p>
+        </div>
+        <div class="vitr">
+
+        </div>
+    </div>
+
+    <div class="Obloha">
+        <p id="kontrolaPohlavi"></p>
+        <!-- kontrola jestli se pohlaví zapisuje správně-->
+        <p id="latlong"></p>
+        <!-- kontrola jestli fungujou ty proměnné-->
+        <script>
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    latlong.innerHTML = "Geolockace není podporována tímto prohlížečem.";
+                }
+            }
+
+            function showPosition(position) {
+                const lat = position.coords.latitude; //nastavuje ty tvoje const do API
+                const long = position.coords.longitude;
+                latlong.innerHTML = lat + "<br>" + long; // test jestli funguje to lat a long . a ano funguje
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>
