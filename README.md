@@ -10,7 +10,11 @@ Poznámka: Toto je nekomerční projekt a slouží pouze pro studijní účely v
 
 ## Proč vlastně aplikace na oblečení?
 V našem týmu jsme chtěli využít použitelnou aplikaci, která nemá řádné zastoupení. Jediná náhrada, kterou jsme objevili je aplikace What should I wear today? a přijde nám mírně 
-zastaralá. Díky tomu věříme, že naše aplikace objeví své uživatele.
+zastaralá. Díky tomu věříme, že naše aplikace objeví své uživatele.    
+## Odkazy
+-[Wireframe][doc/wireframeMuz.png]  
+-[Návrhová dokumentace][doc/navrhova_dokumentace.md]  
+-[UML diagram][doc/uml_weatherwear.png]
 
  
 
