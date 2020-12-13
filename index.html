@@ -1,26 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="swaggeradder.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>WeatherWear</title>
+    <title>Current Weather</title>
 </head>
-<body onload="getLocation(), pohlavi()"> <!-- když se načte body, zjistí lokaci přes funkci getLocation() a nastaví se pohlaví na muz pomocí funkce pohlavi()-->
-    <header  id="pozadiVrchu">
+
+<body>
+    <header id="pozadiVrchu">
         <div class="logo">
-            <img src="WeatherWearLogo.png" height="80px" >
+            <img src="WeatherWearLogo.png" height="80px">
         </div>
         <div class="poloha">
-            Trump2020
+            <div id="lokace"></div>
         </div>
         <div class="pohlavi">
             <button class="Tlacitko" onclick="Tlacitko()" id="Tlacitko"><span id="textTlacitka">Žena</span></button>
         </div>
     </header>
+
+    <div class="info">
+        <div class="obloha">
+            <div id="podnebi"></div>
+        </div>
+        <div class="teplota">
+            <p id="aktualniTeplota"></p>
+        </div>
+        <div class="vitr">
+            <p id="aktualniVitr"></p>
+        </div>
+    </div>
+
+    <div class="kontroly">
+        <p id="kontrolaPohlavi"></p>
+        <!-- kontrola jestli se pohlaví zapisuje správně-->
+        <p id="latlong"></p>
+        <!-- kontrola jestli fungujou ty proměnné-->
+    </div>
+
     <script>
         function pohlavi()
         {
@@ -32,15 +50,15 @@
         {
             if (pohlavi == "zena")
             {
-                document.getElementById("pozadiVrchu").style.backgroundColor = '#3498DB';
-                document.getElementById("Tlacitko").style.backgroundColor = '#FF69B4';
+                document.getElementById("pozadiVrchu").style.backgroundColor = 'rgb(' + 52 + ',' + 152 + ',' + 219 + ')';
+                document.getElementById("Tlacitko").style.backgroundColor = ' #FF69B4';
                 pohlavi = "muz";
                 kontrolaPohlavi.innerHTML = pohlavi;
                 textTlacitka.innerHTML = "Žena";
-            }
+            } 
             else
             {
-                document.getElementById("pozadiVrchu").style.backgroundColor = '#FF69B4';
+                document.getElementById("pozadiVrchu").style.backgroundColor = 'rgb(' + 255 + ',' + 105 + ',' + 180 + ')';
                 document.getElementById("Tlacitko").style.backgroundColor = '#3498DB';
                 pohlavi = "zena"
                 kontrolaPohlavi.innerHTML = pohlavi;
@@ -49,52 +67,62 @@
         }
     </script>
 
-    <div class ="Datum">
-        <script>
-            var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0');
-            var yyyy = today.getFullYear();
-
-            today = dd + '/' + mm + '/' + yyyy;
-            document.write(today);
-        </script>
-    </div>
-
-    <div class = "info">
-        <div class = "obloha">
-            oblacno az polojasno
-        </div>
-        <div class = "teplota">
-            majnus pet stupnov
-        </div>
-        <div class = "vitr">
-            severni vitr je kruty
-        </div>
-    </div>
-
-    <div class="Obloha">
-        <p id="kontrolaPohlavi"></p> <!-- kontrola jestli se pohlaví zapisuje správně-->
-        <p id="latlong"></p> <!-- kontrola jestli fungujou ty proměnné-->
-        <script>
-            function getLocation()
-            {
-                if (navigator.geolocation)
-                {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                } 
-                else
-                {
+    <script lang="text/javascript">
+        function getLocation()
+        {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
                 latlong.innerHTML = "Geolockace není podporována tímto prohlížečem.";
-                }
             }
-            function showPosition(position)
-            {
-                const lat = position.coords.latitude; //nastavuje ty tvoje const do API
-                const long = position.coords.longitude;
-                latlong.innerHTML = lat + "<br>" + long; // test jestli funguje to lat a long . a ano funguje
-            }
-        </script>      
-    </div>
+
+        }
+        console.log(lat);
+        var lat = 10;
+        var lon = 10;
+
+        function showPosition(position)
+        {
+            lat = position.coords.latitude; //nastavuje ty tvoje const do API
+            lon = position.coords.longitude;
+            console.log(lat);
+            latlong.innerHTML = lat + "<br>" + lon; // test jestli funguje to lat a long . a ano funguje
+            onload = apiCall();
+        }
+
+        function apiCall() {
+            var key = 'dd36dc5e73f05a1c2a28d85e662fb406';
+            //fetch('https://api.openweathermap.org/data/2.5/weather?q=Kunda&lang=cz&units=metric&appid=' + key)
+            fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&lang=cz&units=metric&appid=' + key)
+                .then(function(resp) {
+                    return resp.json()
+
+                }) // Convert data to json
+                .then(function(data) {
+                    drawWeather(data);
+                    console.log(data);
+                })
+                .catch(function() {
+                    // catch any errors
+                });
+        }
+
+        function drawWeather(d)
+        {
+            var teplota = Math.round(parseFloat(d.main.temp));
+            var vitr = Math.round(parseFloat(d.wind.speed) * 3.6)
+
+            document.getElementById('podnebi').innerHTML = d.weather[0].description;
+            document.getElementById('aktualniTeplota').innerHTML = teplota + '&deg;C';
+            document.getElementById('lokace').innerHTML = d.name;
+            document.getElementById('aktualniVitr').innerHTML = vitr + 'km/h';
+        }
+        window.onload = function()
+        {
+            getLocation();
+            pohlavi();
+        }
+    </script>
 </body>
+
 </html>
