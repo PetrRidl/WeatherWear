@@ -12,7 +12,7 @@
 - pohlavi() -> vytváří proměnnou pohlavi a ukládá ji na "muz"
 - Tlacitko() -> funkce, která mění pozadí a upravuje celý desing stránky a pracuje s uživatelem, zda je vlastně žena nebo muž. mění proměnnou vytvořenou funkcní pohlavi()
 
-## Css
+## CSS
 - body, ul -> odstraní okraje
 - header -> nastavuje vzhled, umístění a zarovnání headeru
 - tlacitko -> nastavuje vzhled, umístění, velikost,.. tlačítka
