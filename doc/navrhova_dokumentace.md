@@ -10,4 +10,11 @@
 - apiCall() -> pracuje s api pomocí funkce fetch() a také volá funkci ulozData(), kterému také data z odpovědi od Api ukládá
 - ulozData() -> tato funkce přijímá data z api callu a ukládá je do id, které je následně vypisováno v html kódu
 - pohlavi() -> vytváří proměnnou pohlavi a ukládá ji na "muz"
-- Tlacitko() -> funkce, která mění pozadí a upravuje celý desing stránky a pracuje s uživatelem, zda je vlastně žena nebo muž
+- Tlacitko() -> funkce, která mění pozadí a upravuje celý desing stránky a pracuje s uživatelem, zda je vlastně žena nebo muž. mění proměnnou vytvořenou funkcní pohlavi()
+
+## Css
+- body, ul -> odstraní okraje
+- header -> nastavuje vzhled, umístění a zarovnání headeru
+- tlacitko -> nastavuje vzhled, umístění, velikost,.. tlačítka
+- datum -> upravuje vzhled textu, který zkazuje aktuální datum
+- info -> upravuje vzled divu s názvem info
