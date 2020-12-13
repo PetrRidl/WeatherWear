@@ -14,7 +14,10 @@ zastaralá. Díky tomu věříme, že naše aplikace objeví své uživatele.
 ## Odkazy
 [Wireframe](doc/wireframeMuz.png)  
 [Návrhová dokumentace](doc/navrhova_dokumentace.md)  
-[UML diagram](doc/uml_weatherwear.png)
+[UML diagram](doc/uml_weatherwear.png)    
+
+[Webová verze](http://www.weatherwear.jednoduse.cz)  
+Webová verze aktuálně nefunguje, jelikož náš web nemá SSL certifikát, díky kterému bychom měli k dispozici polohu uživatele, takže doporučujeme pro aktuální stav si stáhnout složku "projekt" a otevřít index.html
 
  
 
