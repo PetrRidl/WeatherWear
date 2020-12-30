@@ -44,7 +44,19 @@
 
     </div>
 
+    <img class="obrazek" src="ruka.jpg">
+
+
+
+
     <script lang="text/javascript">
+        function vyberModel() {
+            var obrazek = document.getElementsByClassName("obrazek")[0];
+            obrazek.src = "agrha.jpg";
+
+
+        }
+
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
@@ -53,7 +65,7 @@
             }
 
         }
-        console.log(lat);
+
         var lat = 10;
         var lon = 10;
 
@@ -61,9 +73,10 @@
 
             lat = position.coords.latitude; //nastavuje ty tvoje const do API
             lon = position.coords.longitude;
-            console.log(lat);
+
             latlong.innerHTML = lat + "<br>" + lon; // test jestli funguje to lat a long . a ano funguje
             onload = apiCall();
+
 
 
         }
@@ -75,17 +88,18 @@
                 .then(function(resp) {
                     return resp.json()
 
-                }) // Convert data to json
+                })
                 .then(function(data) {
-                    drawWeather(data);
+                    ulozData(data);
                     console.log(data);
                 })
                 .catch(function() {
-                    // catch any errors
+
                 });
+            onload = vyberModel();
         }
 
-        function drawWeather(d) {
+        function ulozData(d) {
             var teplota = Math.round(parseFloat(d.main.temp));
             var vitr = Math.round(parseFloat(d.wind.speed) * 3.6)
 
@@ -100,6 +114,8 @@
 
 
         }
+
+
 
         function pohlavi() {
             var pohlavi = "muz";
