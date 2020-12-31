@@ -46,7 +46,7 @@
 
     </div>
 
-    <img class="obrazek" src="img/18_az_25.png">
+    <img class="obrazek" src="img/prvni_obrazek.png">
 
 
 
@@ -82,8 +82,8 @@
 
         function apiCall() {
             var key = 'dd36dc5e73f05a1c2a28d85e662fb406';
-            fetch('https://api.openweathermap.org/data/2.5/weather?q=Traplice&lang=cz&units=metric&appid=' + key)
-                //fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&lang=cz&units=metric&appid=' + key)
+            //fetch('https://api.openweathermap.org/data/2.5/weather?q=Jankovice&lang=cz&units=metric&appid=' + key)
+            fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&lang=cz&units=metric&appid=' + key)
                 .then(function(resp) {
                     return resp.json()
 
@@ -126,7 +126,7 @@
                 else if (teplota >= 14) obrazek.src = "img/zena_14_az_18.png";
                 else if (teplota >= 8) obrazek.src = "img/zena_8_az_14.png";
                 else if (teplota >= -5) obrazek.src = "img/zena_-5_az_8.png";
-                else obrazek.src = "img/zena_zima";
+                else if (teplota < -5) obrazek.src = "img/zena_zima";
             }
         }
         window.onload = function() {
