@@ -15,7 +15,7 @@
             <img src="WeatherWearLogo.png" height="80px">
         </div>
         <div class="poloha">
-            <form>
+            <form onsubmit="lokaceManualne()">
                 <input type="text" id="lokaceOdUzivatele" placeholder="Vaše lokace">
                 <button type='button' id="odeslat" onclick="lokaceManualne()"><i class="fas fa-search"></i></button> 
             </form>
@@ -152,7 +152,16 @@
             var lokaceOdUzivatele = document.getElementById("lokaceOdUzivatele").value;
             alert(lokaceOdUzivatele); //zase jen kontrola jestli to uklada spravne :-)
         }
-        
+        function enterNaOdeslani()
+        {
+            var input = document.getElementById("form");
+            input.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("odeslat").click();
+                }
+            });
+        } 
     </script>
 </body>
 
