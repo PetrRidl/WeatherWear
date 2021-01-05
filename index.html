@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="swaggeradder.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <title>Current Weather</title>
+    <script src="https://kit.fontawesome.com/65d96749db.js" crossorigin="anonymous"></script>
+    <title>WeatherWear</title>
 </head>
 
 <body>
@@ -13,13 +15,18 @@
             <img src="WeatherWearLogo.png" height="80px">
         </div>
         <div class="poloha">
-            <div id="lokace"></div>
+            <form>
+                <input type="text" id="lokaceOdUzivatele" placeholder="Vaše lokace">
+                <button type='button' id="odeslat" onclick="lokaceManualne()"><i class="fas fa-search"></i></button> 
+            </form>
         </div>
         <div class="pohlavi">
             <button class="Tlacitko" onclick="Tlacitko()" id="Tlacitko"><span id="textTlacitka">Žena</span></button>
         </div>
     </header>
+    <div id="weather">
 
+    </div>
     <div class="info">
         <div class="obloha">
             <div id="podnebi"></div>
@@ -32,96 +39,120 @@
         </div>
     </div>
 
-    <div class="kontroly">
-        <p id="kontrolaPohlavi"></p>
-        <!-- kontrola jestli se pohlaví zapisuje správně-->
-        <p id="latlong"></p>
-        <!-- kontrola jestli fungujou ty proměnné-->
+    <div class="Obloha">
+        <a style="text-decoration: none;" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+            <p id="latlong" style="color: white"></p>
+        </a>
     </div>
 
-    <script>
-        function pohlavi()
-        {
-            var pohlavi = "muz";
-            kontrolaPohlavi.innerHTML = pohlavi;
-        }
-
-        function Tlacitko()
-        {
-            if (pohlavi == "zena")
-            {
-                document.getElementById("pozadiVrchu").style.backgroundColor = 'rgb(' + 52 + ',' + 152 + ',' + 219 + ')';
-                document.getElementById("Tlacitko").style.backgroundColor = ' #FF69B4';
-                pohlavi = "muz";
-                kontrolaPohlavi.innerHTML = pohlavi;
-                textTlacitka.innerHTML = "Žena";
-            } 
-            else
-            {
-                document.getElementById("pozadiVrchu").style.backgroundColor = 'rgb(' + 255 + ',' + 105 + ',' + 180 + ')';
-                document.getElementById("Tlacitko").style.backgroundColor = '#3498DB';
-                pohlavi = "zena"
-                kontrolaPohlavi.innerHTML = pohlavi;
-                textTlacitka.innerHTML = " Muž";
-            }
-        }
-    </script>
-
+    <img class="obrazek" src="img/prvni_obrazek.png">
     <script lang="text/javascript">
-        function getLocation()
-        {
+        var obrazek = document.getElementsByClassName("obrazek")[0];
+
+        function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
                 latlong.innerHTML = "Geolockace není podporována tímto prohlížečem.";
             }
-
         }
-        console.log(lat);
+
         var lat = 10;
         var lon = 10;
 
-        function showPosition(position)
-        {
+        function showPosition(position) {
+
             lat = position.coords.latitude; //nastavuje ty tvoje const do API
             lon = position.coords.longitude;
-            console.log(lat);
+
             latlong.innerHTML = lat + "<br>" + lon; // test jestli funguje to lat a long . a ano funguje
             onload = apiCall();
+
         }
 
         function apiCall() {
             var key = 'dd36dc5e73f05a1c2a28d85e662fb406';
-            //fetch('https://api.openweathermap.org/data/2.5/weather?q=Kunda&lang=cz&units=metric&appid=' + key)
+            //fetch('https://api.openweathermap.org/data/2.5/weather?q=Jankovice&lang=cz&units=metric&appid=' + key)
             fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&lang=cz&units=metric&appid=' + key)
                 .then(function(resp) {
                     return resp.json()
 
-                }) // Convert data to json
+                })
                 .then(function(data) {
-                    drawWeather(data);
+                    ulozData(data);
                     console.log(data);
                 })
                 .catch(function() {
-                    // catch any errors
+
                 });
+
         }
 
-        function drawWeather(d)
-        {
-            var teplota = Math.round(parseFloat(d.main.temp));
+        var teplota;
+
+        function ulozData(d) {
+            teplota = Math.round(parseFloat(d.main.temp));
+
+            console.log(teplota)
             var vitr = Math.round(parseFloat(d.wind.speed) * 3.6)
 
             document.getElementById('podnebi').innerHTML = d.weather[0].description;
             document.getElementById('aktualniTeplota').innerHTML = teplota + '&deg;C';
-            document.getElementById('lokace').innerHTML = d.name;
+            document.getElementById('lokaceOdUzivatele').value = d.name;
             document.getElementById('aktualniVitr').innerHTML = vitr + 'km/h';
+
+            //Vybírání modelu
+            if (pohlavi1 == "muz") {
+                if (teplota >= 25) obrazek.src = "img/vic_nez_25.png";
+                else if (teplota >= 18) obrazek.src = "img/18_az_25.png";
+                else if (teplota >= 14) obrazek.src = "img/14_az_18.png";
+                else if (teplota >= 8) obrazek.src = "img/8_az_14.png";
+                else if (teplota >= -5) obrazek.src = "img/-5_az_8.png";
+                else if (teplota < -5) obrazek.src = "img/zima.png";
+
+            } else {
+                if (teplota >= 25) obrazek.src = "img/zena_vic_nez_25.png";
+                else if (teplota >= 18) obrazek.src = "img/zena_18_az_25.png";
+                else if (teplota >= 14) obrazek.src = "img/zena_14_az_18.png";
+                else if (teplota >= 8) obrazek.src = "img/zena_8_az_14.png";
+                else if (teplota >= -5) obrazek.src = "img/zena_-5_az_8.png";
+                else if (teplota < -5) obrazek.src = "img/zena_zima";
+            }
         }
-        window.onload = function()
-        {
+        window.onload = function() {
             getLocation();
             pohlavi();
         }
+
+
+        var pohlavi1;
+
+        function pohlavi() {
+            pohlavi1 = "muz";
+        }
+
+        function Tlacitko()
+        {
+            onload = apiCall();
+            if (pohlavi1 == "zena") {
+                document.getElementById("pozadiVrchu").style.backgroundColor = 'rgb(' + 52 + ',' + 152 + ',' + 219 + ')';
+                document.getElementById("Tlacitko").style.backgroundColor = ' #FF69B4';
+                pohlavi1 = "muz";
+                textTlacitka.innerHTML = "Žena";
+            } else {
+                document.getElementById("pozadiVrchu").style.backgroundColor = 'rgb(' + 255 + ',' + 105 + ',' + 180 + ')';
+                document.getElementById("Tlacitko").style.backgroundColor = '#3498DB';
+                pohlavi1 = "zena";
+                textTlacitka.innerHTML = " Muž";
+            }
+
+        }
+        function lokaceManualne()
+        {
+            var lokaceOdUzivatele = document.getElementById("lokaceOdUzivatele").value;
+            alert(lokaceOdUzivatele); //zase jen kontrola jestli to uklada spravne :-)
+        }
+        
     </script>
 </body>
 
