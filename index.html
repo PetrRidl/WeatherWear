@@ -15,7 +15,7 @@
             <img src="WeatherWearLogo.png" height="80px">
         </div>
         <div class="poloha">
-            <form onsubmit="lokaceManualne()">
+            <form id="form" action="#" onsubmit="lokaceManualne();return false">
                 <input type="text" id="lokaceOdUzivatele" placeholder="Vaše lokace">
                 <button type='button' id="odeslat" onclick="lokaceManualne()"><i class="fas fa-search"></i></button> 
             </form>
@@ -33,6 +33,7 @@
         </div>
         <div class="teplota">
             <p id="aktualniTeplota"></p>
+            <p id="asdf">dd</p> <!-- jen pro kontrolu smaž si to peto-->
         </div>
         <div class="vitr">
             <p id="aktualniVitr"></p>
@@ -151,6 +152,7 @@
         {
             var lokaceOdUzivatele = document.getElementById("lokaceOdUzivatele").value;
             alert(lokaceOdUzivatele); //zase jen kontrola jestli to uklada spravne :-)
+            document.getElementById("asdf").innerHTML = lokaceOdUzivatele; // jen pro kontrolu smaz si to peto
         }
         function enterNaOdeslani()
         {
@@ -161,7 +163,7 @@
                     document.getElementById("odeslat").click();
                 }
             });
-        } 
+        }
     </script>
 </body>
 
