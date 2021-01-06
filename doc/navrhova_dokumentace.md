@@ -11,15 +11,15 @@
 - Inkscape -> Kreslení jednotlivých kusů oblečení -> GNU licence
 
 ## Použité knihovny:
-- [Fontawesome] (https://fontawesome.com) 
+[Fontawesome] (https://fontawesome.com)  
 
 ## Poskytovatel údajů o počasí:
-- [Openweather] (https://openweathermap.org) -> použita free verze  
+[Openweather] (https://openweathermap.org) -> použita free verze  
 
 ## Tutoriály  
-- [w3schools.com] (https://www.w3schools.com) -> CSS + html tutoriály
-- [StackOverFlow.com] (https://stackoverflow.com) -> Změna obrázku
-- [ApiCall] (https://bithacker.dev/fetch-weather-openweathermap-api-javascript)  
+[w3schools.com] (https://www.w3schools.com) -> CSS + html tutoriály  
+[StackOverFlow.com] (https://stackoverflow.com) -> Změna obrázku  
+[ApiCall] (https://bithacker.dev/fetch-weather-openweathermap-api-javascript)    
 
 ## Popis funkcí
 - getLocation() -> kód ve spolupráci s funkcí showPosition() žádá uživatele o povolení zjištění jeho lokace
