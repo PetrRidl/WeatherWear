@@ -37,8 +37,8 @@ header {
     vertical-align: top;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-input[type="text"]
-{
+
+input[type="text"] {
     position: relative;
     width: 300px;
     height: 40px;
@@ -47,12 +47,12 @@ input[type="text"]
     border-radius: 50px 0 0 50px;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    box-shadow: 0 0px 16px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0px 16px 0 rgb(139, 134, 134, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
     vertical-align: middle;
     z-index: 2;
 }
-button[id="odeslat"]
-{
+
+button[id="odeslat"] {
     border: none;
     height: 42px;
     width: 70px;
@@ -67,12 +67,14 @@ button[id="odeslat"]
     box-shadow: 0 0px 16px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
     z-index: 1;
 }
-button[id="odeslat"]:active
-{
+
+button[id="odeslat"]:active {
     background-color: #F5F5F5;
 }
-textarea:focus, input:focus, button[id="odeslat"]:focus
-{
+
+textarea:focus,
+input:focus,
+button[id="odeslat"]:focus {
     outline: none;
 }
 
@@ -105,4 +107,12 @@ textarea:focus, input:focus, button[id="odeslat"]:focus
     margin-right: auto;
     width: 75%;
     height: 75%;
+}
+
+.form-inline {
+    display: flex;
+    flex-flow: row;
+    margin-left: 50%;
+    margin-right: 50%;
+    float: center;
 }
