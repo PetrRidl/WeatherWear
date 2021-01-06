@@ -11,7 +11,6 @@ zbytečně složitá. Také našim dalším argumentem, proč vlastně aplikace 
 [Wireframe](doc/wireframeMuz.png)  
 [Návrhová dokumentace](doc/navrhova_dokumentace.md)  
 [UML diagram](doc/uml_weatherwear.png)  
-
 [Webová verze](http://www.weatherwear.jednoduse.cz)  
 
 
