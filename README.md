@@ -1,23 +1,19 @@
 # WeatherWear
-## Vytvořili: Petr Rídl & Jakub Vazan - OAUH
+## Vytvořili: Petr Rídl & Jakub Vazan - OAUH 3.B
 ## Stručný popis:
-Internetová aplikace, která bude pracovat na základě toho, že si zažádá o povolení použít polohu a zeptá se na pohlaví. Aplikace se podívá na počasí v dané lokalitě a podle toho navrhne, co by si uživatel měl vzít na sebe, ať si vezme optimální oblečení.  
+Internetová aplikace, která bude doporučovat optimální oblečení do jistých teplot na základě údajů o počasí ve vaší lokaci. Uživatel zadá lokaci a zvolí, zda je muž nebo žena. Aplikace zjistí počasí v dané lokaci, nějaké základní informace o dané lokaci vypíše a doporučí model oblečení. 
 Poznámka: Toto je nekomerční projekt a slouží pouze pro studijní účely v rámci výuky OAUH.
 
-## Použité programy:
-- Visual Studio Code -> Vývoj aplikace -> Důvod použití: Visual Studio Code je nám známé vývojové prostředí, takže si v něm připadáme komfortně, kromě toho má velmi moderní desing a spoustu užitečných knihoven, se kterými se dá pracovat
-- Visual Paradigm -> Návrh UML diagramu -> Důvod použití: Aplikace nám byla doporučena pro navržení UML diagramu
-
 ## Proč vlastně aplikace na oblečení?
-V našem týmu jsme chtěli využít použitelnou aplikaci, která nemá řádné zastoupení. Jediná náhrada, kterou jsme objevili je aplikace What should I wear today? a přijde nám mírně 
-zastaralá. Díky tomu věříme, že naše aplikace objeví své uživatele.    
+V našem týmu jsme chtěli vyvinout použitelnou aplikaci, která nemá řádné zastoupení. Jediná náhrada, kterou jsme objevili je aplikace What should I wear today? Přijde nám mírně 
+zbytečně složitá. Také našim dalším argumentem, proč vlastně aplikace na oblečení je, že nemá žádné české zastoupení přeci jen, ne každý umí anglicky do takové míry, aby chtěl využít zahraniční weby. Díky tomu věříme, že naše aplikace objeví své uživatele a třeba si ji i někdo oblíbí.  
 ## Odkazy
 [Wireframe](doc/wireframeMuz.png)  
 [Návrhová dokumentace](doc/navrhova_dokumentace.md)  
 [UML diagram](doc/uml_weatherwear.png)    
 
 [Webová verze](http://www.weatherwear.jednoduse.cz)  
-Webová verze aktuálně nefunguje, jelikož náš web nemá SSL certifikát, díky kterému bychom měli k dispozici polohu uživatele, takže doporučujeme pro aktuální stav si stáhnout složku "projekt" a otevřít index.html
+
 
  
 
